@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;no title&gt; &#8212; pygame v2.0.1.dev1 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygame.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/pygame.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body>  
+
+    <div class="document">
+
+  <div class="header">
+    <table>
+      <tr>
+	<td class="logo">
+	  <a href="https://www.pygame.org/">
+	    <img src="../../../../_static/pygame_tiny.png"/>
+	  </a>
+	  <h5>pygame documentation</h5>
+	</td>
+	<td class="pagelinks">
+	  <div class="top">
+	    <a href="https://www.pygame.org/">Pygame Home</a> ||
+	    <a href="../../../../index.html">Help Contents</a> ||
+	    <a href="../../../../genindex.html">Reference Index</a>
+
+        <form action="../../../../search.html" method="get" style="display:inline;float:right;">
+          <input name="q" value="" type="text">
+          <input value="search" type="submit">
+        </form>
+	  </div>
+	  <hr style="color:black;border-bottom:none;border-style: dotted;border-bottom-style:none;">
+	  <p class="bottom"><b>Most useful stuff</b>:
+	    <a href="../../../../ref/color.html">Color</a> | 
+	    <a href="../../../../ref/display.html">display</a> | 
+	    <a href="../../../../ref/draw.html">draw</a> | 
+	    <a href="../../../../ref/event.html">event</a> | 
+	    <a href="../../../../ref/font.html">font</a> | 
+	    <a href="../../../../ref/image.html">image</a> | 
+	    <a href="../../../../ref/key.html">key</a> | 
+	    <a href="../../../../ref/locals.html">locals</a> | 
+	    <a href="../../../../ref/mixer.html">mixer</a> | 
+	    <a href="../../../../ref/mouse.html">mouse</a> | 
+	    <a href="../../../../ref/rect.html">Rect</a> | 
+	    <a href="../../../../ref/surface.html">Surface</a> | 
+	    <a href="../../../../ref/time.html">time</a> | 
+	    <a href="../../../../ref/music.html">music</a> | 
+	    <a href="../../../../ref/pygame.html">pygame</a>
+	  </p>
+
+	  <p class="bottom"><b>Advanced stuff</b>:
+	    <a href="../../../../ref/cursors.html">cursors</a> | 
+	    <a href="../../../../ref/joystick.html">joystick</a> | 
+	    <a href="../../../../ref/mask.html">mask</a> | 
+	    <a href="../../../../ref/sprite.html">sprite</a> | 
+	    <a href="../../../../ref/transform.html">transform</a> | 
+	    <a href="../../../../ref/bufferproxy.html">BufferProxy</a> | 
+	    <a href="../../../../ref/freetype.html">freetype</a> | 
+	    <a href="../../../../ref/gfxdraw.html">gfxdraw</a> | 
+	    <a href="../../../../ref/midi.html">midi</a> | 
+	    <a href="../../../../ref/overlay.html">Overlay</a> | 
+	    <a href="../../../../ref/pixelarray.html">PixelArray</a> | 
+	    <a href="../../../../ref/pixelcopy.html">pixelcopy</a> | 
+	    <a href="../../../../ref/sndarray.html">sndarray</a> | 
+	    <a href="../../../../ref/surfarray.html">surfarray</a> | 
+	    <a href="../../../../ref/math.html">math</a>
+	  </p>
+
+	  <p class="bottom"><b>Other</b>:
+	    <a href="../../../../ref/camera.html">camera</a> | 
+	    <a href="../../../../ref/cdrom.html">cdrom</a> | 
+	    <a href="../../../../ref/examples.html">examples</a> | 
+	    <a href="../../../../ref/fastevent.html">fastevent</a> | 
+	    <a href="../../../../ref/scrap.html">scrap</a> | 
+	    <a href="../../../../ref/tests.html">tests</a> | 
+	    <a href="../../../../ref/touch.html">touch</a> | 
+	    <a href="../../../../ref/pygame.html#module-pygame.version">version</a>
+	  </p>
+	</td>
+      </tr>
+    </table>
+  </div>
+
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+<p>??====================================Author:YoungwookKim(Korean)========================================================================Contact:rumia0601&#64;gmail.com========================================================================withAdvancedOUTPUT  Buttons====================================EvenifKEYDOWNeventisused,itseemslikethisisnotentirelyGUIgamebecauseGUIofthisgameisonlyusedforoutput(=print),notinput.InputforGUImeanscaringmouseeventforspecificlocation.HowaboutmakingtwobuttonstoincreaseordecreaseHP?..image::AdvancedInputOutput1.gif:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=320,240speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;AdvancedInputOutput1.gif&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()..image::AdvancedInputOutput2.gif:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=320,240speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;AdvancedInputOutput2.gif&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()Okay,makingtwobuttonsissimple.Lookatthebutton,theyhaveuniquevisualshape.Howcanitbe?Simpleaspreviousidea:First,draw**bigsquare**.Second,draw**smallersquare**whichhassmallwidth(thissquaredoesn thaveinnercolorsocolorofbigsquarecanbedisplayed)soinnersquareandoutersquareseemslikeseparated.Butthesebuttonsarestillforoutputonly.Weneedtomakeclickareaforthis...image::AdvancedInputOutput3.gif:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=320,240speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;AdvancedInputOutput3.gif&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()..image::AdvancedInputOutput4.gif:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=320,240speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;AdvancedInputOutput4.gif&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()..image::AdvancedInputOutput5.gif:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=320,240speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;AdvancedInputOutput5.gif&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()Nownewevent``MOUSEBUTTONUP``isaddedatEventstatement.Noticethatupofmouseissameasdownofkey.IfMOUSEBUTTONUPisactivated,``event.pos``willberecordedasxandy.Whichmeans,clickedpoint.So,determiningclickedpointiswhetherinsideofcertainRectareaornotisneededbychecking``collidepoint``.Ifinside,itmeans</p>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>*userclickedsomepointwhichispartofcertainarea**</dt><dd><p>then,adequateprocess(updatingvalue)isneeded.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Noticethattherearetwoareaforinput:**(270,425,45,45)**and**(325,425,45,45)**atEventStatement.Noticethatalsotherearetwoareaforoutput.**(margin,height-r-10,r,r)**and**(margin+r+r_margin,height-r-10,r,r)**atdrawButtons.Inthecaseofbutton,inputandoutputareaforbuttonmustbe**identical**.(Otherwise,thisbuttonwillbedeceptive!)Itwillbebestideatosetthisdataassamevaluewithoutcalculatingexactlocationoffunction(foroutput)intoconstant(forinput).Thereisnospecificfunctiontotiethisarea,soyouhavetocareaboutthis.&lt;ReferenceCode&gt;::importpygame,sysfrompygame.localsimport*maxHP=10white=(255,255,255)gray=(127,127,127)black=(0,0,0)red=(255,0,0)green=(0,255,0)blue=(0,0,255)pygame.init()pygame.display.set_caption(&quot;ArraybuttonsProject&quot;)width=640height=480myScreen=pygame.display.set_mode((width,height))myTextFont=pygame.font.Font(&quot;HoonWhitecatR.ttf&quot;,32)myText=myTextFont.render((str(maxHP)+&quot;/&quot;+str(maxHP)),True,red,gray)myTextArea=myText.get_rect()myTextArea.center=(width/2,height/2)fpsClock=pygame.time.Clock()defmain():HP=5whileTrue:myText=myTextFont.render((str(HP)+&quot;/&quot;+str(maxHP)),True,red,gray)myScreen.fill(gray)myScreen.blit(myText,myTextArea)drawHP(HP)drawButtons()foreventinpygame.event.get():ifevent.type==QUIT:pygame.quit()sys.exit()elifevent.type==KEYDOWN:ifevent.key==K_UP:ifHP!=10:HP=HP+1elifevent.key==K_DOWN:ifHP!=0:HP=HP-1elifevent.type==MOUSEBUTTONUP:#1x,y=event.posifpygame.Rect(270,425,45,45).collidepoint(x,y):ifHP!=10:HP=HP+1elifpygame.Rect(325,425,45,45).collidepoint(x,y):ifHP!=0:HP=HP-1pygame.display.update()fpsClock.tick(60)defdrawHP(HP):r=int((height-40)/maxHP)pygame.draw.rect(myScreen,black,(20,20,20,20+((maxHP-0.5)*r)))foriinrange(maxHP):ifHP&gt;=(maxHP-i):pygame.draw.rect(myScreen,red,(20,20+(i*r),20,r))pygame.draw.rect(myScreen,white,(20,20+(i*r),20,r),1)returndefdrawButtons():r=45r_margin=10colors=[red,black]num=2margin=int((width-((r*num)+(r_margin*(num-1))))/2)foriinrange(0,num):left=margin+(i*r)+(i*r_margin)up=height-r-10pygame.draw.rect(myScreen,colors[i],(left,up,r,r))pygame.draw.rect(myScreen,gray,(left+2,up+2,r-4,r-4),2)if__name__=='__main__':main()</p>
+
+
+<br /><br />
+<hr />
+<a href="https://github.com/pygame/pygame/edit/main/docs/reST/tut/en/Red_or_Black/6.Buttons/Advanced INPUT with Advanced OUTPUT.rst" rel="nofollow">Edit on GitHub</a>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pygame v2.0.1.dev1 documentation</a> &#187;</li>
+    <script type="text/javascript" src="https://www.pygame.org/comment/jquery.plugin.docscomments.js"></script>
+
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2000-2020, pygame developers.
+    </div>
+  </body>
+</html>

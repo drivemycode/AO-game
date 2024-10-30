@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;no title&gt; &#8212; pygame v2.0.1.dev1 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygame.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/pygame.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body>  
+
+    <div class="document">
+
+  <div class="header">
+    <table>
+      <tr>
+	<td class="logo">
+	  <a href="https://www.pygame.org/">
+	    <img src="../../../../_static/pygame_tiny.png"/>
+	  </a>
+	  <h5>pygame documentation</h5>
+	</td>
+	<td class="pagelinks">
+	  <div class="top">
+	    <a href="https://www.pygame.org/">Pygame Home</a> ||
+	    <a href="../../../../index.html">Help Contents</a> ||
+	    <a href="../../../../genindex.html">Reference Index</a>
+
+        <form action="../../../../search.html" method="get" style="display:inline;float:right;">
+          <input name="q" value="" type="text">
+          <input value="search" type="submit">
+        </form>
+	  </div>
+	  <hr style="color:black;border-bottom:none;border-style: dotted;border-bottom-style:none;">
+	  <p class="bottom"><b>Most useful stuff</b>:
+	    <a href="../../../../ref/color.html">Color</a> | 
+	    <a href="../../../../ref/display.html">display</a> | 
+	    <a href="../../../../ref/draw.html">draw</a> | 
+	    <a href="../../../../ref/event.html">event</a> | 
+	    <a href="../../../../ref/font.html">font</a> | 
+	    <a href="../../../../ref/image.html">image</a> | 
+	    <a href="../../../../ref/key.html">key</a> | 
+	    <a href="../../../../ref/locals.html">locals</a> | 
+	    <a href="../../../../ref/mixer.html">mixer</a> | 
+	    <a href="../../../../ref/mouse.html">mouse</a> | 
+	    <a href="../../../../ref/rect.html">Rect</a> | 
+	    <a href="../../../../ref/surface.html">Surface</a> | 
+	    <a href="../../../../ref/time.html">time</a> | 
+	    <a href="../../../../ref/music.html">music</a> | 
+	    <a href="../../../../ref/pygame.html">pygame</a>
+	  </p>
+
+	  <p class="bottom"><b>Advanced stuff</b>:
+	    <a href="../../../../ref/cursors.html">cursors</a> | 
+	    <a href="../../../../ref/joystick.html">joystick</a> | 
+	    <a href="../../../../ref/mask.html">mask</a> | 
+	    <a href="../../../../ref/sprite.html">sprite</a> | 
+	    <a href="../../../../ref/transform.html">transform</a> | 
+	    <a href="../../../../ref/bufferproxy.html">BufferProxy</a> | 
+	    <a href="../../../../ref/freetype.html">freetype</a> | 
+	    <a href="../../../../ref/gfxdraw.html">gfxdraw</a> | 
+	    <a href="../../../../ref/midi.html">midi</a> | 
+	    <a href="../../../../ref/overlay.html">Overlay</a> | 
+	    <a href="../../../../ref/pixelarray.html">PixelArray</a> | 
+	    <a href="../../../../ref/pixelcopy.html">pixelcopy</a> | 
+	    <a href="../../../../ref/sndarray.html">sndarray</a> | 
+	    <a href="../../../../ref/surfarray.html">surfarray</a> | 
+	    <a href="../../../../ref/math.html">math</a>
+	  </p>
+
+	  <p class="bottom"><b>Other</b>:
+	    <a href="../../../../ref/camera.html">camera</a> | 
+	    <a href="../../../../ref/cdrom.html">cdrom</a> | 
+	    <a href="../../../../ref/examples.html">examples</a> | 
+	    <a href="../../../../ref/fastevent.html">fastevent</a> | 
+	    <a href="../../../../ref/scrap.html">scrap</a> | 
+	    <a href="../../../../ref/tests.html">tests</a> | 
+	    <a href="../../../../ref/touch.html">touch</a> | 
+	    <a href="../../../../ref/pygame.html#module-pygame.version">version</a>
+	  </p>
+	</td>
+      </tr>
+    </table>
+  </div>
+
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+<p>??====================================Author:YoungwookKim(Korean)========================================================================Contact:rumia0601&#64;gmail.com========================================================================BasicINPUT========================================================================-NewInputisnewEvent====================================Usually,welearnhowtooutputsomethingfirst(ThinkaboutHelloWorld!),learninghowtoinputsomethingisalwayssecond.Why?Becauseinputisnottherequirementforsomeprogramincontrasttooutputistherequirementforeveryprogram.(That sdefinitionofprogram.morethanorsameas0input,morethanorsameas1output.)However,everygameneedsinput.That swhywesaid</p>
+<blockquote>
+<div><p>Ilikeplayinggames.Playingmeansmovingyourpartofbody(maybeyourfinger).Anyway,let saddinputlogictomakethisprojectintorealgame.</p>
+</div></blockquote>
+<p>..image::Bagic-INPUT-sourcecode.png:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=220,140speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;Bagic-INPUT-sourcecode.png&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()..image::Bagic-INPUT-resultscreen.png:class:inlined-right..code-block::python:linenos:importsys,pygamepygame.init()size=width,height=220,140speed=[2,2]black=0,0,0screen=pygame.display.set_mode(size)ball=pygame.image.load(&quot;Bagic-INPUT-resultscreen.png&quot;)ballrect=ball.get_rect()while1:foreventinpygame.event.get():ifevent.type==pygame.QUIT:sys.exit()ballrect=ballrect.move(speed)ifballrect.left&lt;0orballrect.right&gt;width:speed[0]=-speed[0]ifballrect.top&lt;0orballrect.bottom&gt;height:speed[1]=-speed[1]screen.fill(black)screen.blit(ball,ballrect)pygame.display.flip()(SourceCodeforControllingWorldProjectanditsresultscreen)(NottheentiresourcecodeofControllingWorldProject,butpart)(ControllingWorld!moveswhenplayerpressoneoffourdirectionarrowofkeyboard)Thereare2bigdifferenceincomparisontobeforeproject.Firstbigdifferenceisline#5,whichaddschecking``KEYDOWN``**event**istriggeredornot.Otherlinesarejustchangingpreviousalgorithmtoactdifferently.WeknowthatsamecommandcanmakebigdifferenceinentireprogramwhenitisexecutedbeforeEventstatementofafterEventstatement.PayattentionthatprocessaboutchanginglocationappearafterEventstatement.(**Updateafterset**.Thatissecondbigdifference).Variable``event.key``meanslatestpressedkeyonkeyboard.Lookatthespecifickeyname.K_UP,K_LEFT,K_DOWN,K_RIGHT.Veryintuitive**K_series**.(Givenbypygame.localswhichweaddedattheHeader)Furthermore,thereareotherkeynamedK_8,K_a,K_L,K_LCTRL,K_DELETE,orK_F4.Wecanunderstandmeaningofthesekeyswithoutextraexplanation.Fullkeylistcanbefoundin`https://www.pygame.org/docs/ref/key.html#pygame.key.name.`NoticethatKEYDOWNmeans</p>
+<blockquote>
+<div><dl class="simple">
+<dt>thiskeywasnotpressedbefore,but**nowispressed**</dt><dd><p>andmeaningof**</p>
+</dd>
+<dt>hold</dt><dd><p>isnotincluded**here.Inthecaseofhold,newevent-handlingaboutchecking``KEYUP``(itmeans</p>
+</dd>
+</dl>
+<p>thiskeywaspressedbefore,butnowisnotpressed)isneededwithsomeprocessing(whichneedsextravariableandalgorithm).Thiswillbementionedatadvancedpart.</p>
+</div></blockquote>
+<p>Addinginputwaseasybecauseit sjustaddingifphasewithcertaineventparameter.Nowgameprojectisdonebecauseprojecthasoutput,processandinputstep-by-step!Really?No.Thisprojectcan tbecalledasagamebecausethereisno**interaction**betweenatleasttwo**gameobjects**,no**rule**forplayingthis(neitherconstrains(ex.HP,time)norscore).Mostly,not**enjoyable**(nomotivation,novarietyofinputandoutput,noattractivecontents)Firstly,wehavetolearnmoreadvancedinput(forexample,handlingformousestatus),process(forexample,ideaforfunctionalization)andoutput(forexample,printingimage/soundorvisualizinginternaldata)toflourishgameinterface/system.Don tstayinthelevelofprintingconsttextorinputtingsinglepressedkey.Ofcourse,experiencesofthislevelaresurelyhelpfulforadvancedlevel.So,let sgotoadvancedlevel!&lt;ReferenceCode&gt;::importpygame,sysfrompygame.localsimport*white=(255,255,255)red=(255,0,0)green=(0,255,0)pygame.init()pygame.display.set_caption(&quot;ControllingWorldProject&quot;)myScreen=pygame.display.set_mode((640,480))myTextFont=pygame.font.Font(&quot;HoonWhitecatR.ttf&quot;,32)myText=myTextFont.render(&quot;ControllingWorld!&quot;,True,red,green)myTextArea=myText.get_rect()myTextArea.center=(320,240)fpsClock=pygame.time.Clock()x=0y=0moveRight=0#1moveDown=0#2whileTrue:moveRight=0#3moveDown=0#4myTextArea.center=(320+x,240+y)myScreen.fill(white)myScreen.blit(myText,myTextArea)foreventinpygame.event.get():ifevent.type==QUIT:pygame.quit()sys.exit()elifevent.type==KEYDOWN:#5ifevent.key==K_UP:moveDown=-1moveRight=0elifevent.key==K_LEFT:moveDown=0moveRight=-1elifevent.key==K_DOWN:moveDown=1moveRight=0elifevent.key==K_RIGHT:moveDown=0moveRight=1if(moveRight==1):#6x=x+10elif(moveRight==-1):#7x=x-10if(moveDown==1):#8y=y+10elif(moveDown==-1):#9y=y-10pygame.display.update()</p>
+
+
+<br /><br />
+<hr />
+<a href="https://github.com/pygame/pygame/edit/main/docs/reST/tut/en/Red_or_Black/4.Control_text/Basic INPUT.rst" rel="nofollow">Edit on GitHub</a>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pygame v2.0.1.dev1 documentation</a> &#187;</li>
+    <script type="text/javascript" src="https://www.pygame.org/comment/jquery.plugin.docscomments.js"></script>
+
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2000-2020, pygame developers.
+    </div>
+  </body>
+</html>

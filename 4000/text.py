@@ -226,7 +226,9 @@ class Media(Document):
         self.image.fill("gray")
         self.image.blit(image, (self._get_text_posx(image), self._get_text_posy(image)))
 
-        self.image = pygame.transform.scale_by(self.image, 0.5)
+        factor = 0.125 if width > 2000 and height > 2000 else 0.25 if width > 1000 and height > 1000 else 0.5
+
+        self.image = pygame.transform.scale_by(self.image, factor)
 
 class Button(pygame.sprite.Sprite):
     """
@@ -341,8 +343,8 @@ def setup_documents(case: dict) -> None:
     evidence.add_content(case["body"][1])
 
     # assume that one case will have 4 profiles/evidence max.
-    prog1 = [(300, 20), (750, 200), (175, 120), (600, 10)]
-    prog2 = [(200, 20), (650, 200), (75, 120), (500, 10)]
+    prog1 = [(300, 20), (750, 200), (175, 120), (400, 10)]
+    prog2 = [(200, 20), (150, 200), (75, 120), (500, 10)]
 
     if "profiles" in case:
         for content in case["profiles"]:
@@ -433,13 +435,13 @@ def update_state() -> tuple[int, int]:
     and update INTERN_SCORE and MORALITY by returning what they
     should be.
     """
-    global CASES_LIST
+    global CASES_LIST, CASE_COUNTER
 
     history_file = os.path.join("data", "history.csv")
     past_case_ids = []
 
     i_s = 0
-    m = 100
+    m = 50
 
     with open(history_file, "r") as file:
 
@@ -455,6 +457,7 @@ def update_state() -> tuple[int, int]:
                 m += int(row["m"][1:])
             else:
                 m -= int(row["m"][1:])
+            CASE_COUNTER += 1
 
     for nom in past_case_ids:
         case = [case for case in CASES_LIST if int(case["id"]) == nom][0]
@@ -484,7 +487,7 @@ def case_decision(button: DecisionButton) -> None:
     When a decision button is pressed, the player's morality and intern score are calculated
     based on the case type and final decision.
     """
-    global CASE, INTERN_SCORE, MORALITY
+    global CASE, INTERN_SCORE, MORALITY, CASE_COUNTER
 
     if CASE is None:
         return
@@ -501,33 +504,27 @@ def case_decision(button: DecisionButton) -> None:
 
         # Correct verdict
         if decision == case_type:
-            INTERN_SCORE += 15
-            i_s = "+15"
-            m = "+0"
-        elif decision == "N":
-            INTERN_SCORE -= 8
-            i_s = "-8"
+            INTERN_SCORE += 1
+            i_s = "+1"
             m = "+0"
         else:
-            INTERN_SCORE -= 15
-            MORALITY -= 10
-            i_s = "-15"
-            m = "-10"
+            INTERN_SCORE -= 1
+            i_s = "-1"
+            m = "+0"
     else:
         # Correct pending
         if decision == case_type[-1] and case_type[-1] == "N":
-            INTERN_SCORE += 15
-            i_s = "+15"
+            INTERN_SCORE += 1
+            i_s = "+1"
             m = "+0"
         elif decision == case_type[-1]:
-            MORALITY += 15
-            INTERN_SCORE -= 3
-            i_s = "-3"
-            m = "+15"
-        else:
-            MORALITY -= 15
+            MORALITY += 1
             i_s = "+0"
-            m = "-15"
+            m = "+1"
+        else:
+            MORALITY -= 1
+            i_s = "+0"
+            m = "-1"
 
     history_file = os.path.join("data", "history.csv")
     with open(history_file, "a") as file:
@@ -535,13 +532,14 @@ def case_decision(button: DecisionButton) -> None:
 
     document_group.empty()
     CASE = extract_random_case()
+    CASE_COUNTER += 1
 
 def reset_progress(button: Button) -> None:
     """
     This function, linked to the reset button seen in the game over screen,
     yea i carnt write thats about it.
     """
-    global CASE, CASES_LIST
+    global CASE, CASES_LIST, CASE_COUNTER
 
     try:
         curr_filepath = os.path.join("data", "curr.txt")
@@ -559,6 +557,7 @@ def reset_progress(button: Button) -> None:
 
     CASES_LIST = copy_cases_list[:]
     CASE = extract_random_case()
+    CASE_COUNTER = 0
 
 def game_input(events: list[pygame.event.Event]) -> None:
     """
@@ -613,10 +612,9 @@ guilty_filename = os.path.join("assets", "guilty.jpg")
 pending_filename = os.path.join("assets", "pending.jpg")
 reset_filename = os.path.join("assets", "reset.png")
 
-# TBA mute music function
-# pygame.mixer.music.load(main1)
-# pygame.mixer.music.set_volume(0.10)
-# pygame.mixer.music.play(-1)
+pygame.mixer.music.load(main1)
+pygame.mixer.music.set_volume(0.10)
+pygame.mixer.music.play(-1)
 
 paper1_sfx = pygame.mixer.Sound(select)
 pen_sfx = pygame.mixer.Sound(pen_sound)
@@ -627,7 +625,7 @@ document_sounds = [paper1_sfx, paper2_sfx, paper3_sfx]
 
 screen = pygame.display.get_surface()
 table = pygame.transform.scale(pygame.image.load(table_filename), (1280, 720))
-lamp = pygame.transform.scale(pygame.image.load(lamp_filename), (600, 600))
+lamp = pygame.transform.scale(pygame.image.load(lamp_filename), (500, 500))
 pen = pygame.transform.rotate(pygame.transform.scale(pygame.image.load(pen_filename), (250, 250)), 30)
 
 document_group = pygame.sprite.LayeredUpdates()
@@ -636,6 +634,7 @@ gameoverbutton_group = pygame.sprite.Group()
 
 # this is held for ease of resetting game progress
 copy_cases_list = CASES_LIST[:]
+CASE_COUNTER = 0
 INTERN_SCORE, MORALITY = update_state()
 CASE = setup_case()
 setup_decisionbuttons()

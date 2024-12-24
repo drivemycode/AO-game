@@ -59,7 +59,7 @@ CASES_LIST = [
         "Occupation": "Professor of Japanese",
         "Education": "P.h.D in Asian Literature",
         "description": "Dixon is patient and nice to her students. She often gives them chances to prove their worth, despite "
-                       "her repeated failures to do so in the past.",
+                       "their repeated failures to do so in the past.",
         "past_offenses": [
         ],
     },
@@ -210,7 +210,7 @@ CASES_LIST = [
                            "ASHLEY SHEBURN, SHOTFIELD used explicit slurs and swears to insult her.",
             "points": [
                 "Security footage of the incident showed that SHOTFIELD used racial slurs such as 'chingchong' and derogatory words such as 'whore' and 'slut' in a heated argument with "
-                "SHEBURN.",
+                "SHEBURN. An image of the footage is attached.",
                 "ROBERT SHOTFIELD in his statement said, 'The bitch deserved it.'"
             ]
 
@@ -235,7 +235,10 @@ CASES_LIST = [
         },
     ],
     "media": [
-
+        {
+            "caseid": 4,
+            "filename": "cctv.png"
+        }
     ]
 },
 {
@@ -253,8 +256,9 @@ CASES_LIST = [
                            "trigonometric identities during an exam for MAT173.",
             "points": [
                 "CCTV footage outside of the examination hall allegedly showed SHEFFIELD evading the chase of multiple TAs and professors.",
-                "When SHEFFIELD was eventually caught, he said: 'You guys got the wrong guy, I took that course two years ago and aced it! We probably just have similiar tattoos.'",
-                "SHEFFIELD was unable to answer a basic question from the course."
+                "When SHEFFIELD was eventually caught, he said: 'You guys got the wrong guy, I took that course two years ago and aced it! We probably just have similiar tats.'",
+                "SHEFFIELD was unable to answer a basic question from the course.",
+                "Attached is a picture of SHEFFIELD's tattoos along side the question SHEFFIELD was unable to answer."
             ]
 
         }
@@ -266,7 +270,7 @@ CASES_LIST = [
             "Gender": "male",
             "Major": "Drama and environmental studies",
             "GPA": "2.9",
-            "description": "Sheffield is highly erratic, and often speaks with a slur. It is frequent that "
+            "description": "Sheffield is highly erratic, and often speaks with a slur. Frequently, "
                            "he stumbles into lectures and drinks on campus.",
             "past_offenses": [
                 {
@@ -288,7 +292,14 @@ CASES_LIST = [
         },
     ],
     "media": [
-
+        {
+            "caseid": 5,
+            "filename": "question.png"
+        },
+        {
+            "caseid": 5,
+            "filename": "tattoo.png"
+        }
     ]
 },
 {
@@ -309,7 +320,8 @@ CASES_LIST = [
                 "ABE NACROSKY: I can't believe it. Me and Linda are dating, and what happened was I woke up inside her dorm room and was running late for class. "
                 "I must have accidentally grabbed a copy of her essay without realizing it wasn't mine. I think I've been set up. If I did it, why wouldn't I change the name?",
                 "LINDA SWEET: Abe would never do such a thing! He's always been a good student. I don't wish to face an offense because of this as well.",
-                "Anonymous source: I was with Abe up late at a party the night before he handed in the essay. He didn't get a lot of rest after the party, and seemed kind of tired the next day."
+                "Anonymous source: I was with Abe up late at a party the night before he handed in the essay. He didn't get a lot of rest after the party, and seemed kind of tired the next day.",
+                "Attached are copies of NACROSKY's and SWEET's assignments."
             ]
 
         }
@@ -342,14 +354,29 @@ CASES_LIST = [
             },
             {
                 "date": "2nd March 2020",
-                "offence": "Unauthorized possession of mobile phone during exam",
+                "offence": "Unauthorized possession of phone during exam",
                 "course": "DRE101"
             },
         ],
     },
     ],
     "media": [
-
+        {
+            "caseid": 6,
+            "filename": "abe1.png"
+        },
+        {
+            "caseid": 6,
+            "filename": "abe2.png"
+        },
+        {
+            "caseid": 6,
+            "filename": "linda1.png"
+        },
+        {
+            "caseid": 6,
+            "filename": "linda2.png"
+        },
     ]
 },
 {
@@ -372,7 +399,8 @@ CASES_LIST = [
                 "The APPLIED MATH CLUB have vehemently denied all the charges, stating that the CLUB has a firm stance against academic dishonesty.",
                 "The CLUB president provided a statement in response to the allegations: \"The school is just trying to silence us from exposing them as insincere dimwits who had long given up on providing "
                 "students the proper education that we deserve!\"",
-                "The CLUB claimed that all of its members were not present in the University of Soronto at the time of the incident."
+                "The CLUB claimed that all of its members were not present in the University of Soronto at the time of the incident.",
+                "Attached is an image of the CCTV footage at the time and place of the break-in."
             ]
         }
     ],
@@ -412,7 +440,10 @@ CASES_LIST = [
     },
     ],
     "media": [
-
+        {
+            "caseid": 7,
+            "filename": "cctv.png"
+        }
     ]
 },
 {
@@ -459,7 +490,7 @@ CASES_LIST = [
         "Occupation": "Assistant professor of English",
         "Education": "P.h.D in English Literature",
         "description": "LeLouche is a new professor at the University of Soronto. There were widespread rumours about her "
-                       "past sexual activity with undergraduates from her old university, but they are largely unproven.",
+                       "past sexual activity with undergraduates from her old university, but there is no substantive evidence.",
         "past_offenses": [
         ],
     },
@@ -518,7 +549,14 @@ CASES_LIST = [
     },
     ],
     "media": [
-
+        {
+            "caseid": 9,
+            "filename": "question.png"
+        },
+        {
+            "caseid": 9,
+            "filename": "graffiti.png"
+        }
     ]
 },
 ]

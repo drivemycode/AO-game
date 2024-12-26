@@ -70,7 +70,7 @@ CASES_LIST = [
 },
 {
     "id": "2",
-    "type": "I",
+    "type": "G",
     "body": [
         {
             "name": "Tim Lhons Warmer",
@@ -304,7 +304,7 @@ CASES_LIST = [
 },
 {
     "id": "6",
-    "type": "AI",
+    "type": "I",
     "body": [
         {
             "name": "Abe Nacrosky, Linda Sweet",
@@ -313,14 +313,14 @@ CASES_LIST = [
             ]
         },
         {
-            "description": "ABE NACROSKY was accused of cheating on a homework assignment in the course DRE324 by copying fellow coursemate "
-                           "LINDA SWEET's work. The essay NACROSKY submitted was 100% SWEET's ideas, not even differing in name and student number.",
+            "description": "LINDA SWEET was accused of cheating on a homework assignment in the course DRE324 by copying fellow coursemate "
+                           "ABE NACROSKY's work. The essay SWEET submitted was 100% NACROSKY's ideas, not even differing in name.",
             "points": [
                 "NACROSKY, SWEET and an anonymous source have provided statements.",
-                "ABE NACROSKY: I can't believe it. Me and Linda are dating, and what happened was I woke up inside her dorm room and was running late for class. "
-                "I must have accidentally grabbed a copy of her essay without realizing it wasn't mine. I think I've been set up. If I did it, why wouldn't I change the name?",
-                "LINDA SWEET: Abe would never do such a thing! He's always been a good student. I don't wish to face an offense because of this as well.",
-                "Anonymous source: I was with Abe up late at a party the night before he handed in the essay. He didn't get a lot of rest after the party, and seemed kind of tired the next day.",
+                "LINDA SWEET: I can't believe it. What happened was I woke up inside his dorm room and was running late for class. "
+                "I must have accidentally grabbed a copy of his essay without realizing it wasn't mine. I think I've been set up. If I did it, why wouldn't I change the name?",
+                "ABE NACROSKY: Linda would never do such a thing! She's an honest person. I don't wish to face an offense because of this as well.",
+                "Anonymous source: I was up late with Linda at a party the night before she handed in the essay. She didn't get a lot of rest after the party, and seemed kind of tired the next day.",
                 "Attached are copies of NACROSKY's and SWEET's assignments."
             ]
 
@@ -354,7 +354,7 @@ CASES_LIST = [
             },
             {
                 "date": "2nd March 2020",
-                "offence": "Unauthorized possession of phone during exam",
+                "offence": "Unauthorized use of phone during exam",
                 "course": "DRE101"
             },
         ],
@@ -397,10 +397,10 @@ CASES_LIST = [
             "points": [
                 "The APPLIED MATH CLUB is a student-led club that offers free math classes, with a large emphasis on teaching applied math.",
                 "The APPLIED MATH CLUB have vehemently denied all the charges, stating that the CLUB has a firm stance against academic dishonesty.",
-                "The CLUB president provided a statement in response to the allegations: \"The school is just trying to silence us from exposing them as insincere dimwits who had long given up on providing "
+                "The CLUB president, LIAM KAPENHOVER provided a statement in response to the allegations: \"The school is just trying to silence us from exposing them as insincere dimwits who had long given up on providing "
                 "students the proper education that we deserve!\"",
                 "The CLUB claimed that all of its members were not present in the University of Soronto at the time of the incident.",
-                "Attached is an image of the CCTV footage at the time and place of the break-in."
+                "Attached is an image of the CCTV footage at the time and place of the break-in, alongside a screenshot of the CLUB's group chat provided by an anonymous whistleblower."
             ]
         }
     ],
@@ -443,12 +443,16 @@ CASES_LIST = [
         {
             "caseid": 7,
             "filename": "cctv.png"
+        },
+        {
+            "caseid": 7,
+            "filename": "groupchat.png"
         }
     ]
 },
 {
     "id": "8",
-    "type": "AI",
+    "type": "I",
     "body": [
         {
             "name": "Jonas Neau",
@@ -465,7 +469,10 @@ CASES_LIST = [
             "points": [
                 "The exam was conducted in a small classroom, which has no CCTV coverage.",
                 "Multiple anonymous sources claimed to have seen NEAU deposit his mobile phone at the front of the classroom before the exam began.",
-                "In fact, ENG109 TA, ARNOLD LAW claimed that NEAU and LELOUCHE were in a relationship before they broke up at an unspecified time."
+                "Multiple anonymous sources have also claimed to have seen NEAU interact with LELOUCHE several times during the examination, but not to the degree of gross misconduct.",
+                "In fact, ENG109 TA, ARNOLD LAW claimed that NEAU and LELOUCHE were in a relationship before they broke up at an unspecified time.",
+                "The council obtained the following statement from ARNOLD LAW in relation to the alleged relationship: 'It's messed up, but Professor LeLouche is... "
+                "I'm sorry, I don't think I should say anymore.'"
             ]
 
         }
@@ -491,6 +498,17 @@ CASES_LIST = [
         "Education": "P.h.D in English Literature",
         "description": "LeLouche is a new professor at the University of Soronto. There were widespread rumours about her "
                        "past sexual activity with undergraduates from her old university, but there is no substantive evidence.",
+        "past_offenses": [
+        ],
+    },
+    {
+        "name": "Arnold Law",
+        "Age": "21",
+        "Gender": "male",
+        "Major": "Drama studies",
+        "GPA": "3.9",
+        "description": "Law is an experienced, devoted teaching assistant for multiple 100-level ENG and DRE courses. "
+                       "Students remark that he is patient, kind and friendly during his tutorials.",
         "past_offenses": [
         ],
     },
@@ -556,6 +574,357 @@ CASES_LIST = [
         {
             "caseid": 9,
             "filename": "graffiti.png"
+        }
+    ]
+},
+{
+    "id": "10",
+    "type": "I",
+    "body": [
+        {
+            "name": "Janice Igorov",
+            "charges": [
+                "Unauthorized use of AI in assignment"
+            ]
+        },
+        {
+            "description": "JANICE IGOROV, a second-year student allegedly used AI tools when completing her coursework for "
+                           "the course CSC109. The course professor, REED STONE had apparently caught IGOROV during the act. ",
+            "points": [
+                "The following statements from STONE and IGOROV were obtained after several meetings with the academic council.",
+                "JANICE IGOROV: I swear I did not use any outside help, much less AI in completing the assignment! I was only using it to "
+                "generate ideas for my resume, and it just so happened that Professor Stone walked by my desk. Unfortunate timing.",
+                "REED STONE: Lots of people cheat in CSC109, but IGOROV is probably the first student who quite literally did it in front of "
+                "my eyes! I hope the council makes an example out of her case.",
+                "A scan of IGOROV's ChatGPT prompt history corroborates with IGOROV's statement."
+            ]
+
+        }
+    ],
+"profiles": [
+        {
+            "name": "Janice Igorov",
+            "Age": "19",
+            "Gender": "female",
+            "Major": "Computer science",
+            "GPA": "3.2",
+            "description": "Igorov is a typical nerdy, self-reserved girl. She is an average student who loves participating in class, albeit she can "
+                           "be unfocused at times.",
+            "past_offenses": [
+            ],
+        },
+    {
+        "name": "Reed Stone",
+        "Age": "37",
+        "Gender": "male",
+        "Occupation": "Assistant professor of physics",
+        "Education": "P.h.D in classical physics",
+        "description": "Stone is a notorious hard-marker in the university. Notably, Stone holds the lowest RateMyProfessor score in "
+                       "the history of the university. Several faculty have also conveyed concerns over Stone's mannerisms and conduct. ",
+        "past_offenses": [
+        ],
+    },
+    ],
+    "media": [
+    ]
+},
+{
+    "id": "11",
+    "type": "G",
+    "body": [
+        {
+            "name": "Nguyen Ho Vinh",
+            "charges": [
+                "Unauthorized use of aids in exam"
+            ]
+        },
+        {
+            "description": "NGUYEN HO VINH, a third-year student allegedly used an unauthorized cheat sheet during the final exam for MAT333. "
+                           "It was discovered by the head TA, TANG WOO WANG who was invigilating the exam at the time. Allegedly, the cheat sheet, in the form of a tissue paper, "
+                           "was pre-emptively left in a bathroom stall nearby the examination hall.",
+            "points": [
+                "NGUYEN, in his statement, claims that he was writing down the chords for a song he was brainstorming on a piece of tissue paper. NGUYEN states that "
+                "'the song was so great that [he] could not afford to forget about it.'",
+                "TANG discovered the tissue paper when he was perusing the stall right after NGUYEN finished. TANG stated on record that the chords happen to resemble a useful mnemonic that "
+                "is part of the exam's contents.",
+                "There is insufficient evidence to suggest that NGUYEN planted the note beforehand.",
+                "Attached is an image of the supposed cheat sheet, along side a sample of the MAT333 exam TANG provided."
+            ]
+
+        }
+    ],
+"profiles": [
+        {
+            "name": "Nguyen Ho Vinh",
+            "Age": "20",
+            "Gender": "male",
+            "Major": "Mathematics",
+            "GPA": "3.6",
+            "description": "Nguyen is a budding mathematician who has made astonishing contributions to mathematical research "
+                           "despite only being an undergraduate. His side career as an up-and-coming songwriter with over 200k followers "
+                           "on Instagram means that he has practically no time for anything else. He recently signed a deal with Atlantic "
+                           "Records, a few days before the MAT333 examination.",
+            "past_offenses": [
+                {
+                    "date": "13th September 2019",
+                    "offence": "Cheating in homework assignment",
+                    "course": "MAT233"
+                },
+            ],
+        },
+    {
+        "name": "Tang Woo Wang",
+        "Age": "23",
+        "Gender": "male",
+        "Major": "Mathematics",
+        "Education": "Statistics and biology",
+        "description": "Tang is in his final year of his degree and can't wait to get out. He has a pessimistic outlook on life and "
+                       "seems generally unhappy. ",
+        "past_offenses": [
+        ],
+    },
+    ],
+    "media": [
+        {
+            "caseid": 11,
+            "filename": "tissue.jpg"
+        },
+        {
+            "caseid": 11,
+            "filename": "question.png"
+        },
+    ]
+},
+{
+    "id": "12",
+    "type": "AN",
+    "body": [
+        {
+            "name": "Issac Jones",
+            "charges": [
+                "Unauthorized breach of private university property",
+                "Unauthorized manipulation of course grades"
+            ]
+        },
+        {
+            "description": "ISSAC JONES, a second-year student allegedly accessed professor JACK DARYL's laptop without permission in order "
+                           "to change his and his friends' course grades for the course MAT102. ",
+            "points": [
+                "JONES' friends were cleared of any wrong doing after JONES confessed that he acted "
+                "on his own volition.",
+                "DARYL, in his statement said that he and JONES were interacting during an office hour in DARYL's office. When DARYL had to leave for a quick bathroom break, DARYL alleges that this was "
+                "when JONES gained access to his personal laptop and changed the course grades.",
+                "JONES, in his defence meeting, told the council that DARYL was 'full of shit' and 'overly paranoid' as he was simply trying to borrow one of DARYL's pencils from behind his desk.",
+                "There is no security footage of DARYL's office at the time of the incident; however, attached is a text conversation between JONES and his friend sometime after the incident allegedly occurred."
+            ]
+        }
+    ],
+"profiles": [
+        {
+            "name": "Issac Jones",
+            "Age": "19",
+            "Gender": "male",
+            "Major": "Economics",
+            "GPA": "3.4",
+            "description": "Jones is passionate and eager to learn. Personality-wise, he is jovial and cheerful but others "
+                           "have remarked that he often acts before thinking.",
+            "past_offenses": [
+                {
+                    "date": "13th September 2019",
+                    "offence": "Physically assaulted student",
+                    "course": "MAT102"
+                },
+            ],
+        },
+    {
+        "name": "Jack Daryl",
+        "Age": "35",
+        "Gender": "male",
+        "Occupation": "Professor of mathematics",
+        "Education": "P.h.D in mathematics",
+        "description": "Daryl is arrogant and unpleasant to be around. He is friendless, though observations indicate "
+                       "that Daryl is content with this. Access to his laptop was surprisingly quick given that there was no "
+                       "password protection.",
+        "past_offenses": [
+        ],
+    },
+    ],
+    "media": [
+        {
+            "caseid": 12,
+            "filename": "message.png"
+        }
+    ]
+},
+{
+    "id": "13",
+    "type": "I",
+    "body": [
+        {
+            "name": "Junji Tanaka, Shio Ino, etc.",
+            "charges": [
+                "Breaking and entering into a restricted area",
+            ]
+        },
+        {
+            "description": "JUNJI TANAKA, SHIO INO, RINO TATSUKE and JONI WATANABE allegedly gained unauthorized access to the roof of a university building. They proceeded to "
+                           "perform an impromptu concert without the necessary permits.",
+            "points": [
+                "JUNJI TANAKA, SHIO INO, RINO TATSUKE and JONI WATANABE performed for around an hour before noise complaints prompted security to shut down the performance.",
+                "Campus security obtained statements from all of the 4 alleged perpetrators below:",
+                "JUNJI TANAKA: I don't get what the big fuss is. It's the start of the term! Who are we distracting by performing exactly?",
+                "SHIO INO: Hi, how are y- oh, statement? I guess... check out our band, it's called Meer. Yeah, M-E-E-R, meer. What? Meer is not a real word? You look in the meer and you "
+                "see your reflection!",
+                "RINO TATSUKE: Not sure how this constitutes as an academic offense. We were just dicking around. Maybe what we did break is some student code of- never mind.",
+                "JONI WATANABE: You guys enjoyed it too."
+            ]
+        }
+    ],
+"profiles": [
+        {
+            "name": "Junji Tanaka",
+            "Age": "21",
+            "Gender": "male",
+            "Major": "Actuarial science",
+            "GPA": "3.4",
+            "description": "Tanaka is good-looking and charismatic. Rumours indicate that he belongs to an important family back in "
+                           "Japan, but the university council resources are currently limited to a national scale and cannot investigate this any further.",
+            "past_offenses": [
+                {
+                    "date": "13th September 2019",
+                    "offence": "Physically assaulted student",
+                    "course": "MAT195"
+                },
+                {
+                    "date": "6th September 2019",
+                    "offence": "Physically assaulted student",
+                    "course": "MAT173"
+                },
+                {
+                    "date": "6th September 2019",
+                    "offence": "Smoking during lecture",
+                    "course": "MAT195"
+                },
+                {
+                    "date": "3th September 2019",
+                    "offence": "Smoking during lecture",
+                    "course": "MAT102"
+                },
+            ],
+        },
+    {
+        "name": "Shio Ino",
+        "Age": "18",
+        "Gender": "male",
+        "Major": "Chemical physics",
+        "GPA": "3.3",
+        "description": "Ino is shy, quiet and often keeps to himself. It is unclear whether this is because "
+                       "Ino merely lacks confidence or is actually lacking in his level of English.",
+        "past_offenses": [
+            {
+                "date": "13th September 2019",
+                "offence": "Physically assaulted student",
+                "course": "MAT195"
+            },
+        ],
+    },
+    {
+        "name": "Rino Tatsuke",
+        "Age": "20",
+        "Gender": "male",
+        "Major": "Geology",
+        "GPA": "3.6",
+        "description": "Tatsuke is a music prodigy who excels at the bass guitar. He was offered a full ride scholarship to the university, though "
+                       "the scholarship is facing threat of removal following a physical assault incident that Tatsuke was involved with not long ago.",
+        "past_offenses": [
+            {
+                "date": "13th September 2019",
+                "offence": "Physically assaulted student",
+                "course": "MAT195"
+            },
+        ],
+    },
+    {
+        "name": "Joni Watanabe",
+        "Age": "20",
+        "Gender": "male",
+        "Major": "Classics and psychology",
+        "GPA": "3.6",
+        "description": "Watanabe is outspoken and loud. His friends characterize him as brash and impulsive. Suspiciously, the council "
+                       "was unable to find any records of him despite the fact that Watanabe holds official student status.",
+        "past_offenses": [
+        ],
+    },
+    ],
+    "media": [
+    ]
+},
+{
+    "id": "14",
+    "type": "I",
+    "body": [
+        {
+            "name": "Jacque Stevens, Tim Edwards",
+            "charges": [
+                "Unauthorized communication during exam"
+            ]
+        },
+        {
+            "description": "JACQUE STEVENS, a second-year student allegedly made forbidden communication with fellow classmate TIM EDWARDS during the final exam for course APS150. The invigilating TA, "
+                           "JONATHAN CHRIPLOCH alleged that this took place when STEVENS pretended to fall off his chair in front of where EDWARDS sat during the exam.",
+            "points": [
+                "CHRIPLOCH claims that STEVENS commmunicated an answer to a True and False question by falling down in front of EDWARDS.",
+                "The following statements were obtained from various meetings with the council:",
+                "JACQUE STEVENS: Look, I know you're probably gonna check my phone and whatnot, and go ahead! You're gonna find out the truth and that this CHRIPLOCH guy is nothing but an egomaniac.",
+                "TIM EDWARDS: It was nothing but a stupid dare we made a few days before the final exam. He made a dare about falling over if a certain topic were to come up on the exam.",
+                "JONATHAN CHRIPLOCH: I'm telling you, it was a deliberate fall! Why would anyone do that to themselves if not to profit from it somehow?",
+            ]
+
+        }
+    ],
+"profiles": [
+        {
+            "name": "Jacque Stevens",
+            "Age": "20",
+            "Gender": "male",
+            "Major": "Civil engineering",
+            "GPA": "3.4",
+            "description": "Stevens is loud but otherwise the average engineering student. He is best known for being on the university's "
+                           "Putnam team last year.",
+            "past_offenses": [
+            ],
+        },
+    {
+        "name": "Tim Edwards",
+        "Age": "21",
+        "Gender": "male",
+        "Major": "Civil engineering",
+        "GPA": "2.9",
+        "description": "Edwards lacks initiative and frequently skips lectures. The council's records indicate that he is currently seeking therapy.",
+        "past_offenses": [
+            {
+                "date": "20th October 2019",
+                "offence": "Marijuana consumption",
+                "course": "APS150"
+            },
+        ],
+    },
+    {
+        "name": "Jonathan Chriploch",
+        "Age": "23",
+        "Gender": "male",
+        "Major": "Business administration",
+        "GPA": "3.5",
+        "description": "Chriploch is quiet, albeit arrogant. It is rather surprising how he landed his TA position despite his GPA being on the "
+                       "lower end of the hiring median.",
+        "past_offenses": [
+        ],
+    },
+    ],
+    "media": [
+        {
+            "caseid": 14,
+            "filename": "message.png"
         }
     ]
 },

@@ -2,6 +2,7 @@ import math, random, csv, pygame, os, sys
 
 from typing import Union, Callable, Optional
 from pygame import SurfaceType
+from pygame.event import event_name
 from pygame.locals import *
 from cases import CASES_LIST
 
@@ -109,7 +110,7 @@ class Charges(Document):
     def add_content(self, content: dict) -> None:
         title1 = font2.render("The University of Soronto", 1, "black")
         title2 = font1.render("VS", 1, "black")
-        name = font2.render(content["name"], 1, "black")
+        name = font9.render(content["name"], 1, "black")
         self.image.blit(title1, (self._get_text_posx(title1), 33))
         self.image.blit(title2, (self._get_text_posx(title2), 100))
         self.image.blit(name, (self._get_text_posx(name), 166))
@@ -128,7 +129,7 @@ class Evidence(Document):
     def __init__(self) -> None:
         Document.__init__(self)
         self.image = pygame.image.load(os.path.join("assets", "evidence.png"))
-        self.image = pygame.transform.scale(self.image, (500, 575))
+        self.image = pygame.transform.scale(self.image, (500, 600))
         self.rect.x, self.rect.y = 600, 130
 
     def add_content(self, content: dict) -> None:
@@ -191,9 +192,9 @@ class Profile(Document):
         self._blit_long_text(content["description"], (0, 285))
 
         past_offenses_title = font5.render("Past offenses: ", 1, "black")
-        self.image.blit(past_offenses_title, (20, 360))
+        self.image.blit(past_offenses_title, (20, 400))
 
-        y = 385
+        y = 420
         if content["past_offenses"]:
             for offense in content["past_offenses"]:
                 text = font7.render(offense["date"] + ": " + offense["offence"] + " in course " + offense["course"], 1, "black")
@@ -201,7 +202,7 @@ class Profile(Document):
                 y += 17
         else:
             text = font7.render("No past offenses found.", 1, "black")
-            self.image.blit(text, (20, 385))
+            self.image.blit(text, (20, y))
 
 class Media(Document):
 
@@ -302,6 +303,66 @@ class DecisionButton(Button):
         """
 
         self.type = type
+
+class Cutscene:
+    """
+    Generic class for cutscenes.
+    """
+    def __init__(self, text: str) -> None:
+        super().__init__()
+        self.text = text
+        self.played = False
+
+    def draw(self) -> None:
+        screen.blit(table, (0, 0))
+        screen.blit(pen, (-100, 50))
+        screen.blit(lamp, (1000, -200))
+
+        pygame.draw.rect(screen, "black", (0, 480, 1280, 480))
+
+        dialogue = font9.render(self.text, 1, "white")
+
+        screen.blit(dialogue, (640, 550))
+
+        if not self.played:
+            random.choice(grunt_sounds).play(fade_ms=100)
+            self.played = True
+
+class CutscenePlayer:
+    """
+    Plays a sequence of cutscenes.
+    """
+    def __init__(self, lines: list[str]) -> None:
+        """
+        Assume that lines is non-empty; lines is an ordered list of lines
+        the sequence of cutscenes go in.
+        """
+        self.cutscenes = []
+
+        for line in lines:
+            self.cutscenes.append(Cutscene(line))
+
+        self.curr = self.cutscenes[0]
+
+    def next(self) -> None:
+        """
+        Based on the current cutscene curr, set curr to the next cutscene (and return
+        None). If there is no next cutscene set curr to -1.
+        """
+        try:
+            i = self.cutscenes.index(self.curr)
+            self.curr = self.cutscenes[i + 1]
+        except ValueError:
+            self.curr = -1
+        except IndexError:
+            self.curr = -1
+
+    def is_over(self) -> bool:
+        """
+        Returns true if and only if the cutscene player has played all scenes if and only if
+        the current scene curr is not -1.
+        """
+        return self.curr == -1
 
 def setup_decisionbuttons() -> None:
     """
@@ -428,7 +489,6 @@ def draw_game_over_background() -> None:
     screen.blit(m_text, (300, 400))
     screen.blit(i_s_text, (800, 400))
 
-
 def update_state() -> tuple[int, int]:
     """
     Remove previously completed cases from history.csv file
@@ -508,15 +568,14 @@ def case_decision(button: DecisionButton) -> None:
             i_s = "+1"
             m = "+0"
         else:
-            INTERN_SCORE -= 1
-            i_s = "-1"
+            i_s = "+0"
             m = "+0"
     else:
         # Correct pending
         if decision == case_type[-1] and case_type[-1] == "N":
             INTERN_SCORE += 1
             i_s = "+1"
-            m = "+0"
+            m = "+1"
         elif decision == case_type[-1]:
             MORALITY += 1
             i_s = "+0"
@@ -559,6 +618,22 @@ def reset_progress(button: Button) -> None:
     CASE = extract_random_case()
     CASE_COUNTER = 0
 
+def cutscene_check(event: pygame.event.Event) -> None:
+    """
+    Main loop for checking if certain cutscenes should be playing
+    """
+    def _checker(player: CutscenePlayer) -> None:
+        player.curr.draw()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            player.next()
+
+    if CASE_COUNTER == 4 and not test_cutscenes.is_over():
+        _checker(test_cutscenes)
+
+    if INTERN_SCORE == 5 and not test2_cutscenes.is_over():
+        _checker(test2_cutscenes)
+
+
 def game_input(events: list[pygame.event.Event]) -> None:
     """
     The main game loop.
@@ -572,9 +647,9 @@ def game_input(events: list[pygame.event.Event]) -> None:
         if CASE is None:
             reset_b.set_pos(560, 360)
             decisionbutton_group.empty()
-
             draw_game_over_background()
 
+        cutscene_check(event)
         document_group.update(event)
         decisionbutton_group.update(event)
         gameoverbutton_group.update(event)
@@ -584,8 +659,11 @@ def game_input(events: list[pygame.event.Event]) -> None:
 
 pygame.init()
 window = pygame.display.set_mode((1280, 720))
-pygame.display.set_caption("The Court of Academic Integrity")
+pygame.display.set_caption("The Council of Academic Integrity")
 clock = pygame.time.Clock()
+
+test_cutscenes = CutscenePlayer(["two of us riding nowhere", "spending someones", "hard earned pay"])
+test2_cutscenes = CutscenePlayer(["lovely sense of motion", "trying to figure it out", "when i need a reason to wake up", "I FIND YOU TURNING"])
 
 font1 = pygame.font.Font(os.path.join("assets", "Times New Roman.ttf"), 20)
 font1.set_bold(True)
@@ -597,12 +675,16 @@ font5.set_bold(True)
 font6 = pygame.font.Font(os.path.join("assets", "Capsule Eighty Regular.ttf"), 13)
 font7 = pygame.font.Font(os.path.join("assets", "Capsule Eighty Regular.ttf"), 10)
 font8 = pygame.font.Font(os.path.join("assets", "Times New Roman.ttf"), 30)
+font9 = pygame.font.Font(os.path.join("assets", "Times New Roman.ttf"), 32)
 
 main1 = os.path.join("assets", "stal.mp3")
 select = os.path.join("assets", "select.mp3")
 paper2 = os.path.join("assets", "paper2.mp3")
 paper3 = os.path.join("assets", "paper3.mp3")
 pen_sound = os.path.join("assets", "pen.mp3")
+grunt1 = os.path.join("assets", "grunt1.mp3")
+grunt2 = os.path.join("assets", "grunt2.mp3")
+grunt3 = os.path.join("assets", "grunt3.mp3")
 table_filename = os.path.join("assets", "table.jpeg")
 lamp_filename = os.path.join("assets", "lamp.png")
 pen_filename = os.path.join("assets", "pen.png")
@@ -620,8 +702,12 @@ paper1_sfx = pygame.mixer.Sound(select)
 pen_sfx = pygame.mixer.Sound(pen_sound)
 paper2_sfx = pygame.mixer.Sound(paper2)
 paper3_sfx = pygame.mixer.Sound(paper3)
+grunt1_sfx = pygame.mixer.Sound(grunt1)
+grunt2_sfx = pygame.mixer.Sound(grunt2)
+grunt3_sfx = pygame.mixer.Sound(grunt2)
 
 document_sounds = [paper1_sfx, paper2_sfx, paper3_sfx]
+grunt_sounds = [grunt1_sfx, grunt2_sfx, grunt3_sfx]
 
 screen = pygame.display.get_surface()
 table = pygame.transform.scale(pygame.image.load(table_filename), (1280, 720))
@@ -634,6 +720,7 @@ gameoverbutton_group = pygame.sprite.Group()
 
 # this is held for ease of resetting game progress
 copy_cases_list = CASES_LIST[:]
+
 CASE_COUNTER = 0
 INTERN_SCORE, MORALITY = update_state()
 CASE = setup_case()
